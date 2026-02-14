@@ -50,3 +50,16 @@ for pet in df['PetType'].unique():
     for color in df['Color'].unique():
         count = df[(df['PetType'] == pet) & (df['Color'] == color)].shape[0]
         print(f"{pet} - {color}: {count}")
+
+# loop to count number of subjects of every size for each type
+print("Number of subjects by pet type and size:")
+for pet in df['PetType'].unique():
+    for size in df['Size'].unique():
+        count = df[(df['PetType'] ==pet) & (df['Size'] == size)].shape[0]
+        print(f"{pet} - {size} : {count}")
+
+
+
+
+
+
