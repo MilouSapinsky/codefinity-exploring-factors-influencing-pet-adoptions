@@ -23,5 +23,10 @@ sns.barplot(
 plt.title("Number of Orange-Colored Subjects by Pet Type")
 plt.xlabel("Pet Type")
 plt.ylabel("Count of Orange Subjects")
+
+# Extend y-axis to include values over 100
+max_count = orange_counts.max()
+plt.ylim(0, max(100, max_count) + 10)  # ensures the top is at least 110 or higher if needed
+
 plt.tight_layout()
 plt.show()
