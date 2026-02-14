@@ -30,3 +30,20 @@ plt.ylim(0, max(100, max_count) + 10)  # ensures the top is at least 110 or high
 
 plt.tight_layout()
 plt.show()
+
+large_counts = df[df['Size'] == 'Large']['PetType'].value_counts()
+plt.figure(figsize=(8,5))
+sns.barplot(
+    x=large_counts.index,
+    y=large_counts.values,
+    palette="cool"
+)
+plt.title("Number of Large-sized subjects by Pet type")
+plt.xlabel("Pet Type")
+plt.ylabel("Count of large subjects")
+plt.tight_layout()
+plt.show()
+
+
+
+
