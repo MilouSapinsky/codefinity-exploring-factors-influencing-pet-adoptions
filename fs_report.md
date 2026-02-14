@@ -60,19 +60,34 @@ df_count = df['PetID'].shape[0]
 print(f"Number of subjects: {df_count}")
 df_type = df['PetType'].unique()
 print(f"Pet types: {df_type}")
-df_cats = df.loc[df['PetType'] == 'Cat'].shape[0]
+df_cats = df[df['PetType'] == 'Cat'].shape[0]
 print(f"Cats: {df_cats}")
 df_breeds = df['Breed'].unique()
 print(f"Breeds: {df_breeds}")
-#df_cat_breeds = df_breeds[['Siamese', 'Persian']] if all(b in df_breeds for b in ['Siamese', 'Persian']) else []
 df_cat_breeds = df[df['PetType'] == 'Cat']['Breed'].unique()
 print(f"Cat breeds: {df_cat_breeds}")
-# Add a new column that contains the breed only for cats
-#df['CatBreed'] = df['Breed'].where(df['PetType'] == 'Cat', None)
 cat_breed_count = df_cat_breeds.shape[0]
 print(f"Cat breed count: {cat_breed_count}")
-siamese = df[(df['PetType'] == 'Siamese')].shape[0]
+siamese = df[df['Breed'] == 'Siamese'].shape[0]
 print(f"Siamese: {siamese}")
+persian = df[df['Breed'] == 'Persian'].shape[0]
+print(f"Persian: {persian}")
+colors = df['Color'].unique()
+print(f"Colors: {colors}")
+#orange_cats = df.loc[(df['PetType'] == 'Cat') & (df['Color'] == 'Orange')]
+#orange_cats_count = orange_cats.shape[0]
+#print(f"Orange cats: {orange_cats_count}")
+
+# Loop to count cats by each color
+print("Number of cats by color:")
+for color in df['Color'].unique():
+    cat_count = df[(df['PetType'] == 'Cat') & (df['Color'] == color)].shape[0]
+    print(f"{color}: {cat_count}")
+
+print("Number of birds by color:")
+for color in df['Color'].unique():
+    bird_count = df[(df['PetType'] == 'Bird') & (df['Color'] == color)].shape[0]
+    print(f"{color} : {bird_count}")
 
 
 
