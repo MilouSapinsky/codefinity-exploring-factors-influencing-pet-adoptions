@@ -44,6 +44,6 @@ plt.ylabel("Count of large subjects")
 plt.tight_layout()
 plt.show()
 
-
+print(df['WeightKg'])
 
 
